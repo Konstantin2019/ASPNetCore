@@ -348,7 +348,6 @@ D:\Coding\C#\ASPNETCore\OnlineShop\OnlineShop\obj\Debug\net5.0\OnlineShop.dll
 D:\Coding\C#\ASPNETCore\OnlineShop\OnlineShop\obj\Debug\net5.0\ref\OnlineShop.dll
 D:\Coding\C#\ASPNETCore\OnlineShop\OnlineShop\obj\Debug\net5.0\OnlineShop.pdb
 D:\Coding\C#\ASPNETCore\OnlineShop\OnlineShop\obj\Debug\net5.0\OnlineShop.genruntimeconfig.cache
-D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Home\Employess.cshtml.g.cs
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\bin\Debug\net5.0\Humanizer.dll
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
@@ -396,7 +395,6 @@ D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\bin\Debug\net5.0\zh-Hans\Microsoft
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
-D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\OnlineShop.csprojAssemblyReference.cache
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Shared\Partial\_Styles.cshtml.g.cs
@@ -416,3 +414,4 @@ D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Home\
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Home\Partial\_Tabs.cshtml.g.cs
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Shared\Partial\_Footer.cshtml.g.cs
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Shared\Partial\_Header.cshtml.g.cs
+D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Home\Employees.cshtml.g.cs
