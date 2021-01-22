@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Coding\\C#\\ASPNETCore\\OnlineShop\\OnlineShop\\OnlineShop.csproj": {}
+    "D:\\Coding\\C#\\ASPNetCore\\OnlineShop\\OnlineShop\\OnlineShop.csproj": {}
   },
   "projects": {
-    "D:\\Coding\\C#\\ASPNETCore\\OnlineShop\\OnlineShop\\OnlineShop.csproj": {
+    "D:\\Coding\\C#\\ASPNetCore\\OnlineShop\\OnlineShop\\OnlineShop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Coding\\C#\\ASPNETCore\\OnlineShop\\OnlineShop\\OnlineShop.csproj",
+        "projectUniqueName": "D:\\Coding\\C#\\ASPNetCore\\OnlineShop\\OnlineShop\\OnlineShop.csproj",
         "projectName": "OnlineShop",
-        "projectPath": "D:\\Coding\\C#\\ASPNETCore\\OnlineShop\\OnlineShop\\OnlineShop.csproj",
+        "projectPath": "D:\\Coding\\C#\\ASPNetCore\\OnlineShop\\OnlineShop\\OnlineShop.csproj",
         "packagesPath": "C:\\Users\\konst\\.nuget\\packages\\",
-        "outputPath": "D:\\Coding\\C#\\ASPNETCore\\OnlineShop\\OnlineShop\\obj\\",
+        "outputPath": "D:\\Coding\\C#\\ASPNetCore\\OnlineShop\\OnlineShop\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -48,6 +48,10 @@
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
               "version": "[5.0.2, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.1, )"
             }
           },
           "imports": [
