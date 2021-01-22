@@ -5,10 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Error\Error.cshtml" />
     <Content Remove="Views\Home\Index.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Views\Error\Error.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
   </ItemGroup>
 
