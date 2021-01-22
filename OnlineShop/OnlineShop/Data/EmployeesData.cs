@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Data
 {
-    public static class Employees
+    public static class EmployeesData
     {
         public static List<Employee> EmployeesList { get; } = new()
         {

@@ -413,15 +413,14 @@ D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Home\
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Home\Partial\_Tabs.cshtml.g.cs
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Shared\Partial\_Footer.cshtml.g.cs
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Shared\Partial\_Header.cshtml.g.cs
-D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Employees\Employees.cshtml.g.cs
-D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Employees\SelectedEmployee.cshtml.g.cs
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Products\Products.cshtml.g.cs
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Products\Cart.cshtml.g.cs
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Products\Checkout.cshtml.g.cs
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Products\Details.cshtml.g.cs
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Products\Login.cshtml.g.cs
-D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\OnlineShop.csprojAssemblyReference.cache
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Blog\Blog.cshtml.g.cs
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Blog\Single.cshtml.g.cs
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Contact\Contact.cshtml.g.cs
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Shared\_ErrorLayout.cshtml.g.cs
+D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Employees\Details.cshtml.g.cs
+D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Employees\Index.cshtml.g.cs

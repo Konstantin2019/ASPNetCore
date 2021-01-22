@@ -1,22 +1,24 @@
 ﻿@model OnlineShop.Models.Employee
-<!DOCTYPE html>
 
+@{ ViewData["Title"] = $"Employee id : {Model.Id}"; }
+
+<!DOCTYPE html>
 <html>
 <head>
 	<meta name="viewport" content="width=device-width" />
-	<title>Карта сотрудника</title>
+	<title>Employee Card</title>
 </head>
 <body>
-	<h3>Карта сотрудника</h3>
-	<table>
+	<h3>Employee Card</h3>
+	<table class="table">
 		<thead>
 			<tr>
 				<th>#</th>
-				<th>Фамилия</th>
-				<th>Имя</th>
-				<th>Отчество</th>
-				<th>Возраст</th>
-				<th>Адрес</th>
+				<th>SurName</th>
+				<th>FirstName</th>
+				<th>Patronymic</th>
+				<th>Age</th>
+				<th>Address</th>
 				<th>Email</th>
 			</tr>
 		</thead>
@@ -32,7 +34,7 @@
 			</tr>
 		</tbody>
 	</table>
-	<hr/>
-	<a href = "~/">К списку сотрудников</a>
+	<hr />
+	<a asp-controller="Employees" asp-action="Index" class="btn btn-default">To Employees</a>
 </body>
 </html>
