@@ -1,0 +1,38 @@
+﻿@model OnlineShop.Models.Employee
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Карта сотрудника</title>
+</head>
+<body>
+	<h3>Карта сотрудника</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Фамилия</th>
+				<th>Имя</th>
+				<th>Отчество</th>
+				<th>Возраст</th>
+				<th>Адрес</th>
+				<th>Email</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>@Model.Id</td>
+				<td>@Model.FirstName</td>
+				<td>@Model.SurName</td>
+				<td>@Model.Patronymic</td>
+				<td>@Model.Age</td>
+				<td>@Model.Address</td>
+				<td>@Model.Email</td>
+			</tr>
+		</tbody>
+	</table>
+	<hr/>
+	<a href = "~/">К списку сотрудников</a>
+</body>
+</html>
