@@ -424,3 +424,6 @@ D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Conta
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Shared\_ErrorLayout.cshtml.g.cs
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Employees\Details.cshtml.g.cs
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Employees\Index.cshtml.g.cs
+D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Employees\Update.cshtml.g.cs
+D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Employees\Delete.cshtml.g.cs
+D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Shared\_EmployeeLayout.cshtml.g.cs

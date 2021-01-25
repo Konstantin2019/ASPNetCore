@@ -1,43 +1,43 @@
 ﻿@model IEnumerable<OnlineShop.Models.Employee>
 
-@{ ViewData["Title"] = "Employee"; }
+@{
+	Layout = "_EmployeeLayout";
+	ViewData["Title"] = "Employees";
+}
 
-<!DOCTYPE html>
-<html>
-<head>
-	<meta name="viewport" content="width=device-width" />
-	<title>Employees</title>
-</head>
-<body>
-	<h3>Employees</h3>
-	<table class="table">
-		<thead>
+<h3>Employees</h3>
+<table class="table">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>SurName</th>
+			<th>FirstName</th>
+			<th>Patronymic</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var employee in Model)
+		{
 			<tr>
-				<th>#</th>
-				<th>SurName</th>
-				<th>FirstName</th>
-				<th>Patronymic</th>
-				<th>Details</th>
+				<td>@employee.Id</td>
+				<td>@employee.FirstName</td>
+				<td>@employee.SurName</td>
+				<td>@employee.Patronymic</td>
+				<td>
+					<a asp-action="Details" asp-route-id="@employee.Id">
+						<i class="fa fa-info-circle"></i>
+					</a>
+					<a asp-action="Update" asp-route-id="@employee.Id">
+						<i class="fa fa-edit"></i>
+					</a>
+					<a asp-action="Delete" asp-route-id="@employee.Id">
+						<i class="fa fa-ban"></i>
+					</a>
+				</td>
 			</tr>
-		</thead>
-		<tbody>
-			@foreach (var employee in Model)
-			{
-				<tr>
-					<td>@employee.Id</td>
-					<td>@employee.FirstName</td>
-					<td>@employee.SurName</td>
-					<td>@employee.Patronymic</td>
-					<td>
-						<a asp-action="Details" asp-route-id="@employee.Id">
-							<i class="fa fa-info-circle"></i>
-						</a>
-					</td>
-				</tr>
-			}
-		</tbody>
-	</table>
-	<hr />
-	<a asp-controller="Home" asp-action="Index" class="btn btn-default">To Home</a>
-</body>
-</html>
+		}
+	</tbody>
+</table>
+<hr />
+<a asp-controller="Home" asp-action="Index">To Home</a>
