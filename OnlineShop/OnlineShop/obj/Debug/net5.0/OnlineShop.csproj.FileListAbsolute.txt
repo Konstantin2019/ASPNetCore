@@ -427,3 +427,4 @@ D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Emplo
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Employees\Update.cshtml.g.cs
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Employees\Delete.cshtml.g.cs
 D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\Razor\Views\Shared\_EmployeeLayout.cshtml.g.cs
+D:\Coding\C#\ASPNetCore\OnlineShop\OnlineShop\obj\Debug\net5.0\OnlineShop.csprojAssemblyReference.cache
