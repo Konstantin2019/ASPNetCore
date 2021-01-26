@@ -22,11 +22,11 @@ namespace OnlineShop.Controllers
         #region Update
         public IActionResult Update(int id)
         {
-            if (id <= 0)
+            if (id < 0)
                 return BadRequest();
             var employee = employeeSevice.Get(id);
             if (employee is null)
-                return NotFound();
+                employee = new Employee();
             return View(new EmployeeViewModel
             {
                 Id = employee.Id,
