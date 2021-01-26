@@ -46,3 +46,7 @@ OnlineShop/OnlineShop/obj/Debug/net5.0/Razor/Views/Shared/Partial/Footer/_QuockS
 OnlineShop/OnlineShop/obj/Debug/net5.0/Razor/Views/Shared/Partial/Footer/_Service.cshtml.g.cs
 OnlineShop/OnlineShop/obj/Debug/net5.0/Razor/Views/Shared/Partial/Header/_MainMenu.cshtml.g.cs
 OnlineShop/OnlineShop/obj/Debug/net5.0/Razor/Views/Shared/Partial/Header/_UserMenu.cshtml.g.cs
+*.config
+*.v2
+*.dll
+*.exe
