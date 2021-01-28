@@ -6,5 +6,8 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Models
 {
-    public class Category: OrderedEntity { }
+    public class Category: OrderedEntity 
+    {
+        public int? ParentId { get; set; }
+    }
 }
