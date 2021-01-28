@@ -2,6 +2,7 @@
 using OnlineShop.Data;
 using OnlineShop.Models;
 using OnlineShop.Services;
+using OnlineShop.Services.Interfaces;
 using OnlineShop.ViewModels;
 using System;
 using System.Collections.Generic;
