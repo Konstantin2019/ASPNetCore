@@ -1,4 +1,20 @@
-﻿@{ Layout = "_Layout"; }
+﻿@using OnlineShop.Services.Interfaces
+@using OnlineShop.ViewModels
+@inject IProductService productservice
+@{
+	var products = productservice.GetProducts()
+								 .OrderBy(p => p.Order)
+								 .Take(4)
+								 .Select(p => new ProductViewModel
+								 {
+									 Id = p.Id,
+									 Name = p.Name,
+									 Price = p.Price,
+									 ImageUrl = p.ImageUrl,
+									 Order = p.Order
+								 });
+}
+@{ Layout = "_Layout"; }
 
 <section id="slider">
 	<partial name="Partial/_Slider" />
@@ -24,7 +40,7 @@
 			</div>
 
 			<div class="col-sm-9 padding-right">
-				<partial name="Partial/_Features" />
+				<partial name="Partial/_Features" model="products"/>
 				<partial name="Partial/_Tabs" />
 				<partial name="Partial/_Recommended" />
 			</div>

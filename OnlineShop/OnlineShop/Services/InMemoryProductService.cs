@@ -14,9 +14,11 @@ namespace OnlineShop.Services
 
         public IEnumerable<Category> GetCategories() => CategoriesData.categories;
 
-        public IEnumerable<Product> GetProducts(ProductFilter filter)
+        public IEnumerable<Product> GetProducts(ProductFilter filter = null)
         {
             var query = ProductsData.products;
+            if (filter is null)
+                return query;
             if (filter?.CategoryId is { } category_id)
                 query = query.Where(q => q.CategoryId == category_id).ToList();
             if (filter?.BrandId is { } brand_id)
