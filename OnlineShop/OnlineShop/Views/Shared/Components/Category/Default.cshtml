@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<OnlineShop.ViewModels.CategoryViewModel>
-<h2>Категории</h2>
+<h2>Category</h2>
 <div class="panel-group category-products" id="accordian">
 	<!--category-products-->
 	@foreach (var parent in Model)
@@ -25,8 +25,12 @@
 						<ul>
 							@foreach (var child in parent.Child)
 							{
-								<li><a href="#">@child.Name </a></li>
-							}
+								<li>
+									<a asp-controller="Products" asp-action="Index" asp-route-CategoryId="@child.Id">
+										@child.Name
+								</a>
+							</li>
+						}
 						</ul>
 					</div>
 				</div>
@@ -37,7 +41,9 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h4 class="panel-title">
-						<a href="#">@parent.Name</a>
+						<a asp-controller="Products" asp-action="Index" asp-route-CategoryId="@parent.Id">
+							@parent.Name
+						</a>
 					</h4>
 				</div>
 			</div>
