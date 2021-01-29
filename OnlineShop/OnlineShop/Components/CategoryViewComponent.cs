@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Components
 {
-    public class CategoriesViewComponent : ViewComponent
+    public class CategoryViewComponent : ViewComponent
     {
         private IProductService productService;
-        public CategoriesViewComponent(IProductService productService)
+        public CategoryViewComponent(IProductService productService)
         {
             this.productService = productService;
         }

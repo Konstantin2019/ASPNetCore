@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace OnlineShop.Models
+namespace OnlineShop.ViewModels
 {
-    public class Brand : OrderedEntity 
+    public class BrandViewModel : OrderedEntity
     {
         public int ProductsCount { get; set; }
     }
