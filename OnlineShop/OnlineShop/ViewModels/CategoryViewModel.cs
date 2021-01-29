@@ -5,15 +5,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace OnlineShop.Components
+namespace OnlineShop.ViewModels
 {
     public class CategoryViewModel : OrderedEntity
     {
-        public List<CategoryViewModel> ChildSections { get; set; }
-        public CategoryViewModel ParentCategory { get; set; }
+        public List<CategoryViewModel> Child { get; set; }
+        public CategoryViewModel Parent { get; set; }
         public CategoryViewModel()
         {
-            ChildSections = new List<CategoryViewModel>();
+            Child = new List<CategoryViewModel>();
         }
     }
 }

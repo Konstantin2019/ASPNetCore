@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OnlineShop.Services.Interfaces;
+using OnlineShop.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +35,7 @@ namespace OnlineShop.Components
                         Id = parent.Id,
                         Name = parent.Name,
                         Order = parent.Order,
-                        ParentCategory = null
+                        Parent = null
                     });
                 }
                 foreach (var parent in parents)
@@ -42,15 +43,15 @@ namespace OnlineShop.Components
                     var childCategories = categories.Where(c => c.ParentId == parent.Id);
                     foreach (var childCategory in childCategories)
                     {
-                        parent.ChildSections.Add(new CategoryViewModel()
+                        parent.Child.Add(new CategoryViewModel()
                         {
                             Id = childCategory.Id,
                             Name = childCategory.Name,
                             Order = childCategory.Order,
-                            ParentCategory = parent
+                            Parent = parent
                         });
                     }
-                    parent.ChildSections = parent.ChildSections.OrderBy(c => c.Order).ToList();
+                    parent.Child = parent.Child.OrderBy(c => c.Order).ToList();
                 }
                 parents.OrderBy(c => c.Order).ToList();
                 return parents;
