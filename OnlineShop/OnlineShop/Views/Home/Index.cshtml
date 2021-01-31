@@ -1,22 +1,4 @@
-﻿@using OnlineShop.Services.Interfaces
-@using OnlineShop.ViewModels
-@inject IProductService productservice
-@{
-	var products = productservice.GetProducts()
-								 .OrderBy(p => p.Order)
-								 .Take(3)
-								 .Select(p => new ProductViewModel
-								 {
-									 Id = p.Id,
-									 Name = p.Name,
-									 Price = p.Price,
-									 ImageUrl = p.ImageUrl,
-									 Order = p.Order
-								 });
-}
-@{ Layout = "_Layout"; }
-
-<section id="slider">
+﻿<section id="slider">
 	<partial name="Partial/_Slider" />
 </section>
 
@@ -39,7 +21,8 @@
 			</div>
 
 			<div class="col-sm-9 padding-right">
-				<partial name="Partial/_Features" model="products"/>
+				<vc:initial-products />
+				@*<partial name="Partial/_Features" model="products"/>*@
 				<partial name="Partial/_Tabs" />
 				<partial name="Partial/_Recommended" />
 			</div>
