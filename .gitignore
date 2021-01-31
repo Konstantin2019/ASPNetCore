@@ -52,3 +52,4 @@ OnlineShop/OnlineShop/obj/Debug/net5.0/Razor/Views/Shared/Partial/Header/_UserMe
 *.exe
 /.vs/repos/v16
 /OnlineShop/OnlineShop/obj
+/OnlineShop/OnlineShop.DB/obj
