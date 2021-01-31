@@ -40,10 +40,11 @@ namespace OnlineShop.Controllers
             });
         }
         [HttpPost]
-        public IActionResult UpdateConfirmed(EmployeeViewModel model)
+        public IActionResult Update(EmployeeViewModel model)
         {
             if (model is null)
                 throw new ArgumentNullException(nameof(EmployeeViewModel));
+            if (!ModelState.IsValid) return View(model);
             var employee = new Employee
             {
                 Id = model.Id,
