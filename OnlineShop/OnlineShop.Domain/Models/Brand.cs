@@ -1,7 +1,7 @@
-﻿using OnlineShop.Models.Base;
+﻿using OnlineShop.Domain.Models.Base;
 using System.Collections.Generic;
 
-namespace OnlineShop.Models
+namespace OnlineShop.Domain.Models
 {
     public class Brand : OrderedEntity 
     {

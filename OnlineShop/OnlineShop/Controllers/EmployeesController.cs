@@ -1,13 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OnlineShop.Data;
-using OnlineShop.Models;
-using OnlineShop.Services;
+using OnlineShop.Domain.Models;
 using OnlineShop.Services.Interfaces;
 using OnlineShop.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace OnlineShop.Controllers
 {

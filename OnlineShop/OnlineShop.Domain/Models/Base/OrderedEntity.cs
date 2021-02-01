@@ -1,4 +1,4 @@
-﻿namespace OnlineShop.Models.Base
+﻿namespace OnlineShop.Domain.Models.Base
 {
     public class OrderedEntity : NamedEntity
     {

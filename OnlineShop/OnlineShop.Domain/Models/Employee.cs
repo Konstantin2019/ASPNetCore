@@ -1,4 +1,4 @@
-﻿namespace OnlineShop.Models
+﻿namespace OnlineShop.Domain.Models
 {
     public class Employee
     {

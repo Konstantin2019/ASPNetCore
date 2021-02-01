@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OnlineShop.Services.Interfaces;
 using OnlineShop.ViewModels;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -35,6 +34,5 @@ namespace OnlineShop.Components
             });
             return task;
         }
-
     }
 }

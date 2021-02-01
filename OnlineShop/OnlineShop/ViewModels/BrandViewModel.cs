@@ -1,8 +1,4 @@
-﻿using OnlineShop.Models.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using OnlineShop.Domain.Models.Base;
 
 namespace OnlineShop.ViewModels
 {

@@ -1,10 +1,8 @@
 ﻿using OnlineShop.Data;
-using OnlineShop.Models;
+using OnlineShop.Domain.Models;
 using OnlineShop.Services.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace OnlineShop.Services
 {

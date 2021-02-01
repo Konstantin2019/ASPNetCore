@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace OnlineShop.Models.Base
+namespace OnlineShop.Domain.Models.Base
 {
     public class IDEntity
     {
