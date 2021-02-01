@@ -1,15 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using OnlineShop.DB.Context;
 using OnlineShop.Services;
 using OnlineShop.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace OnlineShop
 {
@@ -22,6 +19,8 @@ namespace OnlineShop
         }
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<OnlineShopDB>(conf => conf
+                    .UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddTransient<IEmployeeSevice, InMemoryEmployeeService>();
             services.AddTransient<IProductService, InMemoryProductService>();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
