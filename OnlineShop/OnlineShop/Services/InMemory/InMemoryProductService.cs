@@ -4,7 +4,7 @@ using OnlineShop.Services.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace OnlineShop.Services
+namespace OnlineShop.InMemory.Services
 {
     public class InMemoryProductService : IProductService
     {

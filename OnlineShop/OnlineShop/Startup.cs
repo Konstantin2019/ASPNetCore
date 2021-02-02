@@ -6,7 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OnlineShop.Data;
 using OnlineShop.DB.Context;
-using OnlineShop.Services;
+using OnlineShop.InMemory.Services;
+using OnlineShop.Services.InSQL;
 using OnlineShop.Services.Interfaces;
 
 namespace OnlineShop
@@ -24,7 +25,8 @@ namespace OnlineShop
                     .UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddTransient<OnlineShopDBInitializer>();
             services.AddTransient<IEmployeeSevice, InMemoryEmployeeService>();
-            services.AddTransient<IProductService, InMemoryProductService>();
+            //services.AddTransient<IProductService, InMemoryProductService>();
+            services.AddTransient<IProductService, SQLProductSevice>();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, OnlineShopDBInitializer db)
