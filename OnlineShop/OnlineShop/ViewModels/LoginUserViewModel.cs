@@ -11,6 +11,7 @@ namespace OnlineShop.ViewModels
         [Required, DataType(DataType.Password)]
         public string Password { get; set; }
 
+        [Display(Name = nameof(RememberMe))]
         public bool RememberMe { get; set; }
         
         [HiddenInput(DisplayValue = false)]

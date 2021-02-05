@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using OnlineShop.Domain.Models;
+using OnlineShop.Domain.Models.Identity;
 using OnlineShop.ViewModels;
 using System.Threading.Tasks;
 

@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OnlineShop.Data;
 using OnlineShop.DB.Context;
-using OnlineShop.Domain.Models;
+using OnlineShop.Domain.Models.Identity;
 using OnlineShop.InMemory.Services;
 using OnlineShop.Services.InSQL;
 using OnlineShop.Services.Interfaces;
