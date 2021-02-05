@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using OnlineShop.Domain.Models;
+using OnlineShop.Domain.Models.Identity;
 
 namespace OnlineShop.DB.Context
 {

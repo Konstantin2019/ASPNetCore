@@ -18,10 +18,10 @@ namespace OnlineShop.Controllers
         }
 
         [HttpGet]
-        public IActionResult Login(string returnUrl) => View(new LoginUserViewModel {ReturnUrl = returnUrl });
+        public IActionResult Login(string returnUrl) => View(new LoginUserViewModel { ReturnUrl = returnUrl });
 
         [HttpPost, ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginUserViewModel model) 
+        public async Task<IActionResult> Login(LoginUserViewModel model)
         {
             if (!ModelState.IsValid) return View(model);
 
@@ -39,13 +39,13 @@ namespace OnlineShop.Controllers
         public IActionResult Register() => View(new RegisterUserViewModel());
 
         [HttpPost, ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterUserViewModel model) 
+        public async Task<IActionResult> Register(RegisterUserViewModel model)
         {
             if (!ModelState.IsValid) return View(model);
 
-            var user = new User 
+            var user = new User
             {
-                UserName = model.UserName 
+                UserName = model.UserName
             };
             var reg_result = await userManager.CreateAsync(user, model.Password);
 
@@ -63,6 +63,18 @@ namespace OnlineShop.Controllers
             }
 
             return View(model);
+        }
+
+        public async Task<IActionResult> Logout() 
+        {
+            await signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult AccessDenied(string returnUrl)
+        {
+            ViewBag.ReturnUrl = returnUrl;
+            return View();
         }
     }
 }
