@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace OnlineShop.ViewModels
 {
@@ -11,5 +12,8 @@ namespace OnlineShop.ViewModels
         public string Password { get; set; }
 
         public bool RememberMe { get; set; }
+        
+        [HiddenInput(DisplayValue = false)]
+        public string ReturnUrl { get; set; }
     }
 }

@@ -18,7 +18,22 @@ namespace OnlineShop.Controllers
         }
 
         [HttpGet]
-        public IActionResult Login() => View();
+        public IActionResult Login(string returnUrl) => View(new LoginUserViewModel {ReturnUrl = returnUrl });
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginUserViewModel model) 
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            var login_result = await signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, true);
+
+            if (login_result.Succeeded)
+                return LocalRedirect(model.ReturnUrl ?? "/");
+            else
+                ModelState.AddModelError("", "Incorrect login or passsword!");
+
+            return View(model);
+        }
 
         [HttpGet]
         public IActionResult Register() => View(new RegisterUserViewModel());
@@ -32,16 +47,16 @@ namespace OnlineShop.Controllers
             {
                 UserName = model.UserName 
             };
-            var request = await userManager.CreateAsync(user, model.Password);
+            var reg_result = await userManager.CreateAsync(user, model.Password);
 
-            if (request.Succeeded)
+            if (reg_result.Succeeded)
             {
                 await signInManager.SignInAsync(user, false);
                 RedirectToAction("Index", "Home");
             }
             else
             {
-                foreach (var identityError in request.Errors)
+                foreach (var identityError in reg_result.Errors)
                 {
                     ModelState.AddModelError("", identityError.Description);
                 }

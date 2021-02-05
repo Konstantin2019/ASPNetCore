@@ -45,7 +45,7 @@ namespace OnlineShop
             services.ConfigureApplicationCookie(options =>
             {
                 options.Cookie.HttpOnly = true;
-                options.Cookie.Expiration = TimeSpan.FromDays(30);
+                options.ExpireTimeSpan = TimeSpan.FromDays(30);
                 options.LoginPath = "/Account/Login"; 
                 options.LogoutPath = "/Account/Logout";
                 options.AccessDeniedPath = "/Account/AccessDenied"; 
