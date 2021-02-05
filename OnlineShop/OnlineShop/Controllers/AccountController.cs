@@ -52,7 +52,7 @@ namespace OnlineShop.Controllers
             if (reg_result.Succeeded)
             {
                 await signInManager.SignInAsync(user, false);
-                RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home");
             }
             else
             {
