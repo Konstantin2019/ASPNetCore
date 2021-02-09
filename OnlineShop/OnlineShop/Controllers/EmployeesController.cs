@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using OnlineShop.Domain.Models;
 using OnlineShop.Services.Interfaces;
 using OnlineShop.ViewModels;
 using System;
+using OnlineShop.Domain.Models.Identity;
 
 namespace OnlineShop.Controllers
 {
@@ -16,6 +18,7 @@ namespace OnlineShop.Controllers
         public IActionResult Index() => View(employeeSevice.GetAll());
         public IActionResult Details(int id) => View(employeeSevice.Get(id));
         #region Update
+        [Authorize(Roles = Role.administrator)]
         public IActionResult Update(int id)
         {
             if (id < 0)
@@ -34,6 +37,7 @@ namespace OnlineShop.Controllers
                 Email = employee.Email
             });
         }
+        [Authorize(Roles = Role.administrator)]
         [HttpPost]
         public IActionResult Update(EmployeeViewModel model)
         {
@@ -58,6 +62,7 @@ namespace OnlineShop.Controllers
         }
         #endregion
         #region Delete
+        [Authorize(Roles = Role.administrator)]
         public IActionResult Delete(int id)
         {
             if (id <= 0)
@@ -76,6 +81,7 @@ namespace OnlineShop.Controllers
                 Email = employee.Email
             });
         }
+        [Authorize(Roles = Role.administrator)]
         [HttpPost]
         public IActionResult DeleteConfirmed(int id)
         {
