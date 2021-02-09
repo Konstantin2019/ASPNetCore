@@ -1,20 +1,30 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using OnlineShop.DB.Context;
+using OnlineShop.Domain.Models.Identity;
 using System;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace OnlineShop.Data
 {
     public class OnlineShopDBInitializer
     {
         private readonly OnlineShopDB dbcontext;
+        private readonly UserManager<User> userManager;
+        private readonly RoleManager<Role> roleManager;
         private readonly ILogger<OnlineShopDBInitializer> logger;
 
-        public OnlineShopDBInitializer(OnlineShopDB dbcontext, ILogger<OnlineShopDBInitializer> logger)
+        public OnlineShopDBInitializer(OnlineShopDB dbcontext, 
+            UserManager<User> userManager,
+            RoleManager<Role> roleManager,
+            ILogger<OnlineShopDBInitializer> logger)
         {
             this.dbcontext = dbcontext;
+            this.userManager = userManager;
+            this.roleManager = roleManager;
             this.logger = logger;
         }
         public void Initialize()
@@ -26,7 +36,7 @@ namespace OnlineShop.Data
             {
                 logger.LogInformation("Performing migration...");
                 db.Migrate();
-                logger.LogInformation("Migration was successfull!");
+                logger.LogInformation("Migration have been successfull!");
             }
             else
             {
@@ -38,11 +48,11 @@ namespace OnlineShop.Data
             }
             catch (Exception error)
             {
-                logger.LogInformation("Database initialization was failed!");
+                logger.LogInformation("Database initialization have been failed!");
                 logger.LogInformation(error.Message);
                 throw;
             }
-            logger.LogInformation($"Database initialization was succcessfull ({timer.Elapsed.TotalSeconds} c)!");
+            logger.LogInformation($"Database initialization have been succcessfull ({timer.Elapsed.TotalSeconds} c)!");
         }
         public void InitializeCatalog() 
         {
@@ -62,7 +72,7 @@ namespace OnlineShop.Data
                 dbcontext.Database.ExecuteSqlRaw("SET IDENTITY_INSERT [dbo].[Categories] OFF");
                 dbcontext.Database.CommitTransaction();
             }
-            logger.LogInformation("Categories initialization was succcessfull!");
+            logger.LogInformation("Categories initialization have been succcessfull!");
             logger.LogInformation("Brands initialization...");
             using (dbcontext.Database.BeginTransaction())
             {
@@ -72,7 +82,7 @@ namespace OnlineShop.Data
                 dbcontext.Database.ExecuteSqlRaw("SET IDENTITY_INSERT [dbo].[Brands] OFF");
                 dbcontext.Database.CommitTransaction();
             }
-            logger.LogInformation("Brands initialization was succcessfull!");
+            logger.LogInformation("Brands initialization have been succcessfull!");
             logger.LogInformation("Products initialization...");
             using (dbcontext.Database.BeginTransaction())
             {
@@ -82,8 +92,48 @@ namespace OnlineShop.Data
                 dbcontext.Database.ExecuteSqlRaw("SET IDENTITY_INSERT [dbo].[Products] OFF");
                 dbcontext.Database.CommitTransaction();
             }
-            logger.LogInformation("Products initialization was succcessfull!");
-            logger.LogInformation($"Catalog initialization was succcessfull ({timer.Elapsed.TotalSeconds} c)!");
+            logger.LogInformation("Products initialization have been succcessfull!");
+            logger.LogInformation($"Catalog initialization have been succcessfull ({timer.Elapsed.TotalSeconds} c)!");
+        }
+        public async Task InitializeIdentity() 
+        {
+            var timer = Stopwatch.StartNew();
+            logger.LogInformation("Identity initialization...");
+
+            async Task RoleCheck(string role) 
+            {
+                if (!await roleManager.RoleExistsAsync(role)) 
+                {
+                    logger.LogInformation($"{role} isn't finded, creating...");
+                    await roleManager.CreateAsync(new Role { Name = role });
+                    logger.LogInformation($"{role} have been successfully created!");
+                }
+            }
+
+            await RoleCheck(Role.administrator);
+            await RoleCheck(Role.users);
+
+            if (await userManager.FindByNameAsync(User.administrator) is null) 
+            {
+                logger.LogInformation("Administrator isn't finded, creating...");
+                var admin = new User { UserName = User.administrator };
+                var creationResult = await userManager.CreateAsync(admin, User.defaultAdminPassword);
+                if (creationResult.Succeeded) 
+                {
+                    logger.LogInformation("Administrator have been successfully created!");
+                    await userManager.AddToRoleAsync(admin, Role.administrator);
+                    logger.LogInformation("Administrator have been recieved admin role");
+                }
+                    
+                else
+                {
+                    logger.LogInformation("Administrator creation is failed!");
+                    var errors = creationResult.Errors.Select(e => e.Description);
+                    throw new InvalidOperationException($"Admin initialization error : {string.Join(",", errors)}");
+                }
+            }
+
+            logger.LogInformation("Identity initialization have been successfull!");
         }
     }
 }
