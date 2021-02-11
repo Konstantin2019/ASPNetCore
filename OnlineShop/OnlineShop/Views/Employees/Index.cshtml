@@ -1,5 +1,4 @@
-﻿@using OnlineShop.Domain.Models.Identity;
-@model IEnumerable<OnlineShop.Domain.Models.Employee>
+﻿@model IEnumerable<OnlineShop.Domain.Models.Employee>
 
 @{
 	Layout = "_EmployeeLayout";
@@ -45,6 +44,13 @@
 </table>
 <hr />
 <div>
-	<a asp-action="Update" asp-route-id="0" class="btn btn-danger">Create</a> |
-	<a asp-controller="Home" asp-action="Index">To Home</a>
+	@if (User.IsInRole(Role.administrator))
+	{
+		<a asp-action="Update" asp-route-id="0" class="btn btn-danger">Create</a>
+		<a asp-controller="Home" asp-action="Index">| To Home</a>
+	}
+	else
+	{
+		<a asp-controller="Home" asp-action="Index">To Home</a>
+	}
 </div>

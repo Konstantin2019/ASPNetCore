@@ -44,6 +44,7 @@ namespace OnlineShop.Data
             }
             try
             {
+                InitializeIdentity().Wait();
                 InitializeCatalog();
             }
             catch (Exception error)
