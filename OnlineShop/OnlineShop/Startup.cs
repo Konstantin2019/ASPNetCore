@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OnlineShop.Services;
+using OnlineShop.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace OnlineShop
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IEmployeeSevice, InMemoryEmployeeService>();
+            services.AddTransient<IProductService, InMemoryProductService>();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

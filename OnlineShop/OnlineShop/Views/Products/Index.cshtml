@@ -1,5 +1,13 @@
-﻿<section id="slider">
-	<partial name="Partial/_Slider" />
+﻿@model OnlineShop.ViewModels.CatalogViewModel
+@{
+	Layout = "_Layout";
+	ViewData["Title"] = "Shop catalog";
+}
+
+<section id="advertisement">
+	<div class="container">
+		<img src="~/images/shop/advertisement.jpg" alt="" />
+	</div>
 </section>
 
 <section>
@@ -21,10 +29,7 @@
 			</div>
 
 			<div class="col-sm-9 padding-right">
-				<vc:initial-products />
-				@*<partial name="Partial/_Features" model="products"/>*@
-				<partial name="Partial/_Tabs" />
-				<partial name="Partial/_Recommended" />
+				<partial name="Partial/_Features" model="Model.Products" />
 			</div>
 		</div>
 	</div>
