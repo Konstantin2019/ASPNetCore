@@ -12,6 +12,8 @@ namespace OnlineShop.InMemory.Services
 
         public IEnumerable<Category> GetCategories() => CategoriesData.categories;
 
+        public Product GetProductById(int id) => ProductsData.products.FirstOrDefault(p => p.Id == id);
+
         public IEnumerable<Product> GetProducts(ProductFilter filter = null)
         {
             var query = ProductsData.products;

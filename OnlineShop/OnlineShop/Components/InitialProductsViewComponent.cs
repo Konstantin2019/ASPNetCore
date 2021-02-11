@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using OnlineShop.Services.Extensions;
 using OnlineShop.Services.Interfaces;
 using OnlineShop.ViewModels;
 using System.Collections.Generic;
@@ -26,14 +27,7 @@ namespace OnlineShop.Components
                 var products = productService.GetProducts()
                                  .OrderBy(p => p.Order)
                                  .Take(6)
-                                 .Select(p => new ProductViewModel
-                                 {
-                                     Id = p.Id,
-                                     Name = p.Name,
-                                     Price = p.Price,
-                                     ImageUrl = p.ImageUrl,
-                                     Order = p.Order
-                                 });
+                                 .Select(p => p.ToView());
                 return products.ToList();
             });
             return task;

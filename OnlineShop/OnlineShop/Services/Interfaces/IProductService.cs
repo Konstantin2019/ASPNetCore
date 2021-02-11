@@ -8,5 +8,6 @@ namespace OnlineShop.Services.Interfaces
         public IEnumerable<Category> GetCategories();
         public IEnumerable<Brand> GetBrands();
         public IEnumerable<Product> GetProducts(ProductFilter filter = null);
+        public Product GetProductById(int id);
     }
 }

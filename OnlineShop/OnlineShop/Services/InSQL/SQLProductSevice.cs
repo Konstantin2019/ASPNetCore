@@ -19,6 +19,10 @@ namespace OnlineShop.Services.InSQL
 
         public IEnumerable<Category> GetCategories() => dbcontext.Categories.Include(d => d.Products);
 
+        public Product GetProductById(int id) => dbcontext.Products.Include(p => p.Brand)
+                                                                   .Include(p => p.Category)
+                                                                   .FirstOrDefault(p => p.Id == id);
+
         public IEnumerable<Product> GetProducts(ProductFilter filter = null)
         {
             IQueryable<Product> query = dbcontext.Products;
