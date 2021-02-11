@@ -6,15 +6,15 @@ namespace OnlineShop.ViewModels
     public class LoginUserViewModel
     {
         [Required, MaxLength(256)]
-        public string UserName { get; set; }
+        public string UserName { get; init; }
 
         [Required, DataType(DataType.Password)]
-        public string Password { get; set; }
+        public string Password { get; init; }
 
         [Display(Name = nameof(RememberMe))]
-        public bool RememberMe { get; set; }
+        public bool RememberMe { get; init; }
         
         [HiddenInput(DisplayValue = false)]
-        public string ReturnUrl { get; set; }
+        public string ReturnUrl { get; init; }
     }
 }

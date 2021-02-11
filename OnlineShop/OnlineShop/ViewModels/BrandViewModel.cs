@@ -4,6 +4,6 @@ namespace OnlineShop.ViewModels
 {
     public class BrandViewModel : OrderedEntity
     {
-        public int ProductsCount { get; set; }
+        public int ProductsCount { get; init; }
     }
 }

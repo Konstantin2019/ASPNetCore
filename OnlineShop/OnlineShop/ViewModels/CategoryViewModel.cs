@@ -5,8 +5,8 @@ namespace OnlineShop.ViewModels
 {
     public class CategoryViewModel : OrderedEntity
     {
-        public List<CategoryViewModel> Child { get; set; }
-        public CategoryViewModel Parent { get; set; }
+        public List<CategoryViewModel> Child { get; init; }
+        public CategoryViewModel Parent { get; init; }
         public CategoryViewModel()
         {
             Child = new List<CategoryViewModel>();
