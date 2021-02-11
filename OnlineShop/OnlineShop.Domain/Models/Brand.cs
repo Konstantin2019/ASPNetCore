@@ -1,13 +1,11 @@
-﻿using OnlineShop.Models.Base;
-using System;
+﻿using OnlineShop.Domain.Models.Base;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace OnlineShop.Models
+namespace OnlineShop.Domain.Models
 {
     public class Brand : OrderedEntity 
     {
         public int ProductsCount { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }
