@@ -72,10 +72,11 @@
 								<input type="text" value="3" />
 							</span>
 							<div>
-								<button type="button" class="btn btn-fefault cart">
+								<a asp-controller="Cart" asp-action="Increment" asp-route-id="@Model.Id" 
+								   class="btn btn-fefault cart">
 									<i class="fa fa-shopping-cart"></i>
 									Add to cart
-								</button>
+								</a>
 							</div>
 							<p><b>Availability:</b>In Stock</p>
 							<p><b>Condition:</b>New</p>

@@ -28,7 +28,7 @@ namespace OnlineShop.Services.InSQL
             IQueryable<Product> query = dbcontext.Products;
             if (filter is null)
                 return query;
-            if (filter.Ids.Length > 0)
+            if (filter.Ids?.Length > 0)
                 query.Where(p => filter.Ids.Contains(p.Id));
             else
             {
