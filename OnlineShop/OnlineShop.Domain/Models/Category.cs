@@ -6,10 +6,10 @@ namespace OnlineShop.Domain.Models
 {
     public class Category: OrderedEntity 
     {
-        public int? ParentId { get; set; }
+        public int? ParentId { get; init; }
 
         [ForeignKey(nameof(ParentId))]
-        public Category Parent { get; set; }
+        public Category Parent { get; init; }
         public ICollection<Product> Products { get; set; }
     }
 }

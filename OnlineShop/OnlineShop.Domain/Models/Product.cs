@@ -5,19 +5,19 @@ namespace OnlineShop.Domain.Models
 {
     public class Product : OrderedEntity
     {
-        public int CategoryId { get; set; }
+        public int CategoryId { get; init; }
 
         [ForeignKey(nameof(CategoryId))]
-        public Category Category { get; set; }
+        public Category Category { get; init; }
 
-        public int? BrandId { get; set; }
+        public int? BrandId { get; init; }
 
         [ForeignKey(nameof(BrandId))]
-        public Brand Brand { get; set; }
+        public Brand Brand { get; init; }
 
-        public string ImageUrl { get; set; }
+        public string ImageUrl { get; init; }
 
         [Column(TypeName = "decimal(18,2)")]
-        public decimal Price { get; set; }
+        public decimal Price { get; init; }
     }
 }

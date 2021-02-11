@@ -5,9 +5,9 @@ namespace OnlineShop.Services.Interfaces
 {
     public interface IProductService
     {
-        public IEnumerable<Category> GetCategories();
-        public IEnumerable<Brand> GetBrands();
-        public IEnumerable<Product> GetProducts(ProductFilter filter = null);
-        public Product GetProductById(int id);
+        IEnumerable<Category> GetCategories();
+        IEnumerable<Brand> GetBrands();
+        IEnumerable<Product> GetProducts(ProductFilter filter = null);
+        Product GetProductById(int id);
     }
 }

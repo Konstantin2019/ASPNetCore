@@ -6,7 +6,7 @@ namespace OnlineShop.ViewModels
     {
         public int? BrandId { get; init; }
         public int? CategoryId { get; init; }
-        public IEnumerable<ProductViewModel> Products { get; init; }
+        public IEnumerable<ProductViewModel> Products { get; set; }
 
     }
 }

@@ -28,10 +28,15 @@ namespace OnlineShop.Services.InSQL
             IQueryable<Product> query = dbcontext.Products;
             if (filter is null)
                 return query;
-            if (filter?.CategoryId is { } category_id)
-                query = query.Where(q => q.CategoryId == category_id);
-            if (filter?.BrandId is { } brand_id)
-                query = query.Where(q => q.BrandId == brand_id);
+            if (filter.Ids.Length > 0)
+                query.Where(p => filter.Ids.Contains(p.Id));
+            else
+            {
+                if (filter?.CategoryId is { } category_id)
+                    query = query.Where(q => q.CategoryId == category_id);
+                if (filter?.BrandId is { } brand_id)
+                    query = query.Where(q => q.BrandId == brand_id);
+            }
             return query;
         }
     }
