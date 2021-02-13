@@ -38,32 +38,31 @@ namespace OnlineShop.Services.InSQL
             var user = await userManager.FindByNameAsync(userName);
             if (user is null)
                 throw new InvalidOperationException($"User {userName} isn't finded!");
-            await using (db.Database.BeginTransaction().ConfigureAwait(false))
+            await using var transaction = await db.Database.BeginTransactionAsync().ConfigureAwait(false);
+            var order = new Order
             {
-                var order = new Order
-                {
-                    Name = orderViewModel.Name,
-                    Phone = orderViewModel.Phone,
-                    Address = orderViewModel.Address,
-                    User = user
-                };
-                var productIds = cartViewModel.Items.Select(i => i.product.Id).ToArray();
-                var cartItems = await db.Products.Where(p => productIds.Contains(p.Id)).ToArrayAsync();
-                order.Items = cartViewModel.Items
-                                           .Join(cartItems,
-                                                 cartItem => cartItem.product.Id,
-                                                 product => product.Id,
-                                                 (cartItem, product) => new OrderItem
-                                                 {
-                                                    Order = order,
-                                                    Product = product,
-                                                    Price = product.Price,
-                                                    Quantity = cartItem.quantity,
-                                                 }).ToArray();
-                await db.SaveChangesAsync();
-                await db.Database.CommitTransactionAsync();
-                return order;
-            }
+                Name = orderViewModel.Name,
+                Phone = orderViewModel.Phone,
+                Address = orderViewModel.Address,
+                User = user
+            };
+            var productIds = cartViewModel.Items.Select(i => i.product.Id).ToArray();
+            var cartItems = await db.Products.Where(p => productIds.Contains(p.Id)).ToArrayAsync();
+            order.Items = cartViewModel.Items
+                                       .Join(cartItems,
+                                             cartItem => cartItem.product.Id,
+                                             product => product.Id,
+                                             (cartItem, product) => new OrderItem
+                                             {
+                                                 Order = order,
+                                                 Product = product,
+                                                 Price = product.Price,
+                                                 Quantity = cartItem.quantity,
+                                             }).ToArray();
+            await db.Orders.AddAsync(order);
+            await db.SaveChangesAsync();
+            await transaction.CommitAsync();
+            return order;
         }
     }
 }

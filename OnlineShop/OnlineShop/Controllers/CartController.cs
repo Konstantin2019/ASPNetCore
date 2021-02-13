@@ -48,16 +48,15 @@ namespace OnlineShop.Controllers
                     Cart = cartService.GetViewModel(),
                     Order = orderViewModel
                 });
-            var order = orderService.CreateOrder(User.Identity!.Name,
-                                                 cartService.GetViewModel(),
-                                                 orderViewModel);
+            var order = await orderService.CreateOrder(User.Identity!.Name,
+                                                       cartService.GetViewModel(),
+                                                       orderViewModel);
             cartService.Clear();
-            return RedirectToAction(nameof(OrderConfirm), new { order.Id });
+            return RedirectToAction(nameof(OrderConfirmed), new { order.Id });
         }
-        [HttpPost]
-        public IActionResult OrderConfirm(int id) 
+        public IActionResult OrderConfirmed(int id) 
         {
-            ViewBag.OrderId = id; 
+            ViewBag.OrderId = id;
             return View();
         }
     }
