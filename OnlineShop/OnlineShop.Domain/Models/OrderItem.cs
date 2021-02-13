@@ -1,9 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using OnlineShop.Domain.Models.Base;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineShop.Domain.Models
 {
-    public class OrderItem
+    public class OrderItem : IDEntity
     {
         [Required]
         public Order Order { get; init; }
