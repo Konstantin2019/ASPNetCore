@@ -1,4 +1,4 @@
-﻿@model OnlineShop.ViewModels.CartViewModel
+﻿@model OnlineShop.ViewModels.CartOrderViewModel
 @{
 	Layout = "_Layout";
 	ViewData["Title"] = "Cart";
@@ -24,7 +24,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					@foreach (var (product, quantity) in Model.Items)
+					@foreach (var (product, quantity) in Model.Cart.Items)
 					{
 						<tr>
 							<td class="cart_product">
@@ -122,10 +122,10 @@
 			<div class="col-sm-6">
 				<div class="total_area">
 					<ul>
-						<li>Cart Sub Total <span>@((Model.TotalPrice - 150).ToString("C"))</span></li>
+						<li>Cart Sub Total <span>@((Model.Cart.TotalPrice - 150).ToString("C"))</span></li>
 						<li>Eco Tax <span>$2</span></li>
 						<li>Shipping Cost <span>Free</span></li>
-						<li>Total <span>@Model.TotalPrice.ToString("C")</span></li>
+						<li>Total <span>@Model.Cart.TotalPrice.ToString("C")</span></li>
 					</ul>
 					<a class="btn btn-default update" href="">Update</a>
 					<a class="btn btn-default check_out" href="">Check Out</a>

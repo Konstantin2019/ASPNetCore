@@ -61,6 +61,8 @@ namespace OnlineShop
 
             services.AddTransient<IProductService, SQLProductSevice>();
 
+            services.AddTransient<IOrderService, SQLOrderService>();
+
             services.AddTransient<ICartService, CartService>();
 
             services.AddControllersWithViews().AddRazorRuntimeCompilation();

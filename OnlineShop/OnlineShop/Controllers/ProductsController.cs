@@ -34,8 +34,5 @@ namespace OnlineShop.Controllers
             var product = productService.GetProductById(id);
             return View(product.ToView());
         }
-        public IActionResult Checkout() => View("Checkout");
-        public IActionResult Cart() => View("Cart");
-        public IActionResult Login() => View("Login");
     }
 }
