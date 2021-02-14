@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OnlineShop.Domain.Models;
+using OnlineShop.Services.Extensions;
 using OnlineShop.Services.Interfaces;
 using OnlineShop.ViewModels;
 using System.Linq;
@@ -25,18 +26,14 @@ namespace OnlineShop.Controllers
             {
                 CategoryId = categoryId,
                 BrandId = brandId,
-                Products = products.OrderBy(p => p.Order)
-                                   .Select(p => new ProductViewModel
-                                   {
-                                       Id = p.Id,
-                                       Name = p.Name,
-                                       Order = p.Order,
-                                       ImageUrl = p.ImageUrl,
-                                       Price = p.Price
-                                   })
+                Products = products.OrderBy(p => p.Order).Select(p => p.ToView())
             });
         }
-        public IActionResult Details() => View("Details");
+        public IActionResult Details(int id)
+        {
+            var product = productService.GetProductById(id);
+            return View(product.ToView());
+        }
         public IActionResult Checkout() => View("Checkout");
         public IActionResult Cart() => View("Cart");
         public IActionResult Login() => View("Login");

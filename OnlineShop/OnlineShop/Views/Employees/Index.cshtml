@@ -28,12 +28,15 @@
 					<a asp-action="Details" asp-route-id="@employee.Id">
 						<i class="fa fa-info-circle"></i>
 					</a>
-					<a asp-action="Update" asp-route-id="@employee.Id">
-						<i class="fa fa-edit"></i>
-					</a>
-					<a asp-action="Delete" asp-route-id="@employee.Id">
-						<i class="fa fa-ban"></i>
-					</a>
+					@if (User.IsInRole(Role.administrator))
+					{
+						<a asp-action="Update" asp-route-id="@employee.Id">
+							<i class="fa fa-edit"></i>
+						</a>
+						<a asp-action="Delete" asp-route-id="@employee.Id">
+							<i class="fa fa-ban"></i>
+						</a>
+					}
 				</td>
 			</tr>
 		}
@@ -41,6 +44,13 @@
 </table>
 <hr />
 <div>
-	<a asp-action="Update" asp-route-id="0" class="btn btn-danger">Create</a> |
-	<a asp-controller="Home" asp-action="Index">To Home</a>
+	@if (User.IsInRole(Role.administrator))
+	{
+		<a asp-action="Update" asp-route-id="0" class="btn btn-danger">Create</a>
+		<a asp-controller="Home" asp-action="Index">| To Home</a>
+	}
+	else
+	{
+		<a asp-controller="Home" asp-action="Index">To Home</a>
+	}
 </div>

@@ -9,6 +9,7 @@ using OnlineShop.Data;
 using OnlineShop.DB.Context;
 using OnlineShop.Domain.Models.Identity;
 using OnlineShop.InMemory.Services;
+using OnlineShop.Services.InCookies;
 using OnlineShop.Services.InSQL;
 using OnlineShop.Services.Interfaces;
 using System;
@@ -59,6 +60,8 @@ namespace OnlineShop
             //services.AddTransient<IProductService, InMemoryProductService>();
 
             services.AddTransient<IProductService, SQLProductSevice>();
+
+            services.AddTransient<ICartService, CartService>();
 
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }

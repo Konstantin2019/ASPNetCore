@@ -2,7 +2,8 @@
 {
     public class ProductFilter
     {
-        public int? CategoryId { get; set; }
-        public int? BrandId { get; set; }
+        public int? CategoryId { get; init; }
+        public int? BrandId { get; init; }
+        public int[] Ids { get; set; }
     }
 }

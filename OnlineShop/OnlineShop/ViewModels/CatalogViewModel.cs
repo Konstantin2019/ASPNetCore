@@ -4,8 +4,8 @@ namespace OnlineShop.ViewModels
 {
     public class CatalogViewModel
     {
-        public int? BrandId { get; set; }
-        public int? CategoryId { get; set; }
+        public int? BrandId { get; init; }
+        public int? CategoryId { get; init; }
         public IEnumerable<ProductViewModel> Products { get; set; }
 
     }

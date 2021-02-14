@@ -5,7 +5,7 @@ namespace OnlineShop.Domain.Models
 {
     public class Brand : OrderedEntity 
     {
-        public int ProductsCount { get; set; }
+        public int ProductsCount { get; init; }
         public ICollection<Product> Products { get; set; }
     }
 }

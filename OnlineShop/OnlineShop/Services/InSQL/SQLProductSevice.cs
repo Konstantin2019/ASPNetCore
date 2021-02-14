@@ -19,15 +19,24 @@ namespace OnlineShop.Services.InSQL
 
         public IEnumerable<Category> GetCategories() => dbcontext.Categories.Include(d => d.Products);
 
+        public Product GetProductById(int id) => dbcontext.Products.Include(p => p.Brand)
+                                                                   .Include(p => p.Category)
+                                                                   .FirstOrDefault(p => p.Id == id);
+
         public IEnumerable<Product> GetProducts(ProductFilter filter = null)
         {
             IQueryable<Product> query = dbcontext.Products;
             if (filter is null)
                 return query;
-            if (filter?.CategoryId is { } category_id)
-                query = query.Where(q => q.CategoryId == category_id);
-            if (filter?.BrandId is { } brand_id)
-                query = query.Where(q => q.BrandId == brand_id);
+            if (filter.Ids?.Length > 0)
+                query.Where(p => filter.Ids.Contains(p.Id));
+            else
+            {
+                if (filter?.CategoryId is { } category_id)
+                    query = query.Where(q => q.CategoryId == category_id);
+                if (filter?.BrandId is { } brand_id)
+                    query = query.Where(q => q.BrandId == brand_id);
+            }
             return query;
         }
     }
