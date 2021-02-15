@@ -1,6 +1,6 @@
 ﻿namespace OnlineShop.ViewModels
 {
-    public class UserOrderViewModel
+    public record UserOrderViewModel
     {
         public int Id { get; init; }
         public string Name { get; init; }

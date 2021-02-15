@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OnlineShop.ViewModels
 {
-    public class EmployeeViewModel
+    public record EmployeeViewModel
     {
         public int Id { get; init; }
 

@@ -4,12 +4,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineShop.Domain.Models
 {
-    public class Category: OrderedEntity 
+    public record Category: OrderedEntity 
     {
         public int? ParentId { get; init; }
 
         [ForeignKey(nameof(ParentId))]
         public Category Parent { get; init; }
-        public ICollection<Product> Products { get; set; }
+        public ICollection<Product> Products { get; init; }
     }
 }

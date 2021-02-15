@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineShop.Domain.Models
 {
-    public class Product : OrderedEntity
+    public record Product : OrderedEntity
     {
         public int CategoryId { get; init; }
 

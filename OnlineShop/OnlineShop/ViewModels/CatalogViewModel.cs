@@ -2,11 +2,11 @@
 
 namespace OnlineShop.ViewModels
 {
-    public class CatalogViewModel
+    public record CatalogViewModel
     {
         public int? BrandId { get; init; }
         public int? CategoryId { get; init; }
-        public IEnumerable<ProductViewModel> Products { get; set; }
+        public IEnumerable<ProductViewModel> Products { get; init; }
 
     }
 }

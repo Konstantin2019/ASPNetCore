@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OnlineShop.Domain.Models
 {
-    public class Order : NamedEntity
+    public record Order : NamedEntity
     {
         [Required]
         public User User { get; init; }
@@ -17,7 +17,7 @@ namespace OnlineShop.Domain.Models
         [Required]
         public string Address { get; init; }
 
-        public DateTime Date { get; init; } = DateTime.Now;
+        public DateTime Date { get; set; } = DateTime.Now;
 
         public ICollection<OrderItem> Items { get; set; } = new HashSet<OrderItem>();
 

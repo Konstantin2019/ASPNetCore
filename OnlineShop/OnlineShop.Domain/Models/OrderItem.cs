@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineShop.Domain.Models
 {
-    public class OrderItem : IDEntity
+    public record OrderItem : IDEntity
     {
         [Required]
         public Order Order { get; init; }

@@ -1,6 +1,6 @@
 ﻿namespace OnlineShop.Domain.Models
 {
-    public class ProductFilter
+    public record ProductFilter
     {
         public int? CategoryId { get; init; }
         public int? BrandId { get; init; }

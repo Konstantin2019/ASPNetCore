@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace OnlineShop.ViewModels
+﻿namespace OnlineShop.ViewModels
 {
-    public class OrderViewModel
+    public record OrderViewModel
     {
         public string Name { get; init; }
 

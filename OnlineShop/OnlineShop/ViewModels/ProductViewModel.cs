@@ -3,7 +3,7 @@ using OnlineShop.Domain.Models.Base;
 
 namespace OnlineShop.ViewModels
 {
-    public class ProductViewModel : OrderedEntity
+    public record ProductViewModel : OrderedEntity
     {
         public string ImageUrl { get; init; }
         public decimal Price { get; init; }

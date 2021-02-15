@@ -3,13 +3,9 @@ using System.Collections.Generic;
 
 namespace OnlineShop.ViewModels
 {
-    public class CategoryViewModel : OrderedEntity
+    public record CategoryViewModel : OrderedEntity
     {
-        public List<CategoryViewModel> Child { get; set; }
+        public List<CategoryViewModel> Child { get; set; } = new();
         public CategoryViewModel Parent { get; init; }
-        public CategoryViewModel()
-        {
-            Child = new List<CategoryViewModel>();
-        }
     }
 }

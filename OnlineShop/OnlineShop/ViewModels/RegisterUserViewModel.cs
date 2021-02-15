@@ -2,7 +2,7 @@
 
 namespace OnlineShop.ViewModels
 {
-    public class RegisterUserViewModel
+    public record RegisterUserViewModel
     {
         [Required, MaxLength(256)]
         public string UserName { get; init; }
