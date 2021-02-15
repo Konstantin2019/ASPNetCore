@@ -7,6 +7,6 @@ namespace OnlineShop.Domain.Models.Identity
         public const string administrator = "admin";
         public const string defaultAdminPassword = "Admin_Password123";
 
-        public string Description { get; init; }
+        public string Description { get; set; }
     }
 }

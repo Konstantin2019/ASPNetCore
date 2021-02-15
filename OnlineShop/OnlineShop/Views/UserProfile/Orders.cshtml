@@ -1,0 +1,27 @@
+﻿@model IEnumerable<UserOrderViewModel>
+@{
+	Layout = "_UserProfileLayout";
+	ViewData["Title"] = "UserProfile";
+}
+<h2>@ViewData["Title"]</h2>
+
+<table class="table table-bordered">
+	<tr>
+		<th>Id</th>
+		<th>Name</th>
+		<th>Address</th>
+		<th>Phone</th>
+		<th>TotalPrice</th>
+	</tr>
+	@{var i = 1; }
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>@(i++)</td>
+			<td>@item.Name</td>
+			<td>@item.Address</td>
+			<td>@item.Phone</td>
+			<td>@item.TotalPrice.ToString("C")</td>
+		</tr>
+	}
+</table>

@@ -9,5 +9,8 @@ namespace OnlineShop.Services.Interfaces
         IEnumerable<Brand> GetBrands();
         IEnumerable<Product> GetProducts(ProductFilter filter = null);
         Product GetProductById(int id);
+        int Add(Product product); 
+        void Update(Product product);
+        bool Delete(int id);
     }
 }

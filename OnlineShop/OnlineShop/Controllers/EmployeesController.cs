@@ -4,7 +4,9 @@ using OnlineShop.Domain.Models;
 using OnlineShop.Services.Interfaces;
 using OnlineShop.ViewModels;
 using System;
+using System.Linq;
 using OnlineShop.Domain.Models.Identity;
+using OnlineShop.Services.Extensions;
 
 namespace OnlineShop.Controllers
 {
@@ -15,8 +17,8 @@ namespace OnlineShop.Controllers
         {
             this.employeeSevice = employeeSevice;
         }
-        public IActionResult Index() => View(employeeSevice.GetAll());
-        public IActionResult Details(int id) => View(employeeSevice.Get(id));
+        public IActionResult Index() => View(employeeSevice.GetAll().Select(e => e.ToView()));
+        public IActionResult Details(int id) => View(employeeSevice.Get(id).ToView());
         #region Update
         [Authorize(Roles = Role.administrator)]
         public IActionResult Update(int id)
@@ -26,16 +28,7 @@ namespace OnlineShop.Controllers
             var employee = employeeSevice.Get(id);
             if (employee is null)
                 employee = new Employee();
-            return View(new EmployeeViewModel
-            {
-                Id = employee.Id,
-                FirstName = employee.FirstName,
-                SurName = employee.SurName,
-                Patronymic = employee.Patronymic,
-                Age = employee.Age,
-                Address = employee.Address,
-                Email = employee.Email
-            });
+            return View(employee.ToView());
         }
         [Authorize(Roles = Role.administrator)]
         [HttpPost]
@@ -44,16 +37,7 @@ namespace OnlineShop.Controllers
             if (model is null)
                 throw new ArgumentNullException(nameof(EmployeeViewModel));
             if (!ModelState.IsValid) return View(model);
-            var employee = new Employee
-            {
-                Id = model.Id,
-                FirstName = model.FirstName,
-                SurName = model.SurName,
-                Patronymic = model.Patronymic,
-                Age = model.Age,
-                Address = model.Address,
-                Email = model.Email
-            };
+            var employee = model.FromView();
             if (employee.Id == 0)
                 employeeSevice.Create(employee);
             else
@@ -70,16 +54,7 @@ namespace OnlineShop.Controllers
             var employee = employeeSevice.Get(id);
             if (employee is null)
                 return NotFound();
-            return View(new EmployeeViewModel
-            {
-                Id = employee.Id,
-                FirstName = employee.FirstName,
-                SurName = employee.SurName,
-                Patronymic = employee.Patronymic,
-                Age = employee.Age,
-                Address = employee.Address,
-                Email = employee.Email
-            });
+            return View(employee.ToView());
         }
         [Authorize(Roles = Role.administrator)]
         [HttpPost]

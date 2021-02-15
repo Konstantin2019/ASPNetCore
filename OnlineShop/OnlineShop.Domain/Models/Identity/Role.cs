@@ -7,6 +7,6 @@ namespace OnlineShop.Domain.Models.Identity
         public const string administrator = "Administrators";
         public const string users = "Users";
 
-        public string Description { get; init; }
+        public string Description { get; set; }
     }
 }

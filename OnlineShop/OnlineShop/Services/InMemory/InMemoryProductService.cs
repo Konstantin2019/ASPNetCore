@@ -1,6 +1,7 @@
 ﻿using OnlineShop.Data;
 using OnlineShop.Domain.Models;
 using OnlineShop.Services.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -24,6 +25,18 @@ namespace OnlineShop.InMemory.Services
             if (filter?.BrandId is { } brand_id)
                 query = query.Where(q => q.BrandId == brand_id).ToList();
             return query;
+        }
+        public int Add(Product product)
+        {
+            throw new NotImplementedException();
+        }
+        public void Update(Product product)
+        {
+            throw new NotImplementedException();
+        }
+        public bool Delete(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -2,9 +2,9 @@
 
 namespace OnlineShop.Domain.Models.Base
 {
-    public class NamedEntity : IDEntity
+    public record NamedEntity : IDEntity
     {
         [Required]
-        public string Name { get; init; }
+        public string Name { get; set; }
     }
 }

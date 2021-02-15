@@ -267,6 +267,66 @@ namespace OnlineShop.DB.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("OnlineShop.Domain.Models.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("OnlineShop.Domain.Models.OrderItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("OrderItem");
+                });
+
             modelBuilder.Entity("OnlineShop.Domain.Models.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -362,6 +422,32 @@ namespace OnlineShop.DB.Migrations
                     b.Navigation("Parent");
                 });
 
+            modelBuilder.Entity("OnlineShop.Domain.Models.Order", b =>
+                {
+                    b.HasOne("OnlineShop.Domain.Models.Identity.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("OnlineShop.Domain.Models.OrderItem", b =>
+                {
+                    b.HasOne("OnlineShop.Domain.Models.Order", "Order")
+                        .WithMany("Items")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("OnlineShop.Domain.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId");
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("OnlineShop.Domain.Models.Product", b =>
                 {
                     b.HasOne("OnlineShop.Domain.Models.Brand", "Brand")
@@ -387,6 +473,11 @@ namespace OnlineShop.DB.Migrations
             modelBuilder.Entity("OnlineShop.Domain.Models.Category", b =>
                 {
                     b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("OnlineShop.Domain.Models.Order", b =>
+                {
+                    b.Navigation("Items");
                 });
 #pragma warning restore 612, 618
         }

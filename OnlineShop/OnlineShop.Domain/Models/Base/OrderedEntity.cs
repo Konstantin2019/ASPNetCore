@@ -1,7 +1,7 @@
 ﻿namespace OnlineShop.Domain.Models.Base
 {
-    public class OrderedEntity : NamedEntity
+    public record OrderedEntity : NamedEntity
     {
-        public int Order { get; init; }
+        public int Order { get; set; }
     }
 }

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OnlineShop.ViewModels
 {
-    public class LoginUserViewModel
+    public record LoginUserViewModel
     {
         [Required, MaxLength(256)]
         public string UserName { get; init; }

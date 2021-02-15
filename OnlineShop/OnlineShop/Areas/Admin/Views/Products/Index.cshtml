@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Product>
+@{
+	Layout = "_Layout";
+	ViewData["Title"] = "Products";
+}
+
+<p>
+	<a asp-action="Update" asp-route-id="0">Add new product</a>
+</p>
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Id)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Name)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Order)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Category)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Brand)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.ImageUrl)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Price)
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var product in Model)
+		{
+			var brand_name = product.Brand?.Name;
+			<tr>
+				<td>
+					@Html.DisplayFor(p => product.Id)
+				</td>
+				<td>
+					@Html.DisplayFor(p => product.Name)
+				</td>
+				<td>
+					@Html.DisplayFor(p => product.Order)
+				</td>
+				<td>
+					@Html.DisplayFor(p => product.Category.Name)
+				</td>
+				<td>
+					@Html.DisplayFor(p => brand_name)
+				</td>
+				<td>
+					<img src="~/images/home/@product.ImageUrl" width="50" alt="@product.Name" />
+				</td>
+				<td>
+					@Html.DisplayFor(p => product.Price)
+				</td>
+				<td>
+					<a asp-controller="Products" asp-action="Update" asp-route-id="@product.Id">
+						<i class="fa fa-edit"></i>
+					</a> |
+					<a asp-controller="Products" asp-action="Delete" asp-route-id="@product.Id">
+						<i class="fa fa-ban"></i>
+					</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
