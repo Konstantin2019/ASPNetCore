@@ -1,10 +1,11 @@
 ﻿@model IEnumerable<Product>
 @{
+	Layout = "_Layout";
 	ViewData["Title"] = "Products";
 }
 
 <p>
-	<a asp-action="Create">Create New</a>
+	<a asp-action="Update" asp-route-id="0">Add new product</a>
 </p>
 <table class="table">
 	<thead>
@@ -19,10 +20,10 @@
 				@Html.DisplayNameFor(model => model.Order)
 			</th>
 			<th>
-				@Html.DisplayNameFor(model => model.CategoryId)
+				@Html.DisplayNameFor(model => model.Category)
 			</th>
 			<th>
-				@Html.DisplayNameFor(model => model.BrandId)
+				@Html.DisplayNameFor(model => model.Brand)
 			</th>
 			<th>
 				@Html.DisplayNameFor(model => model.ImageUrl)
@@ -34,34 +35,38 @@
 		</tr>
 	</thead>
 	<tbody>
-		@foreach (var item in Model)
+		@foreach (var product in Model)
 		{
+			var brand_name = product.Brand?.Name;
 			<tr>
 				<td>
-					@Html.DisplayFor(modelItem => item.Id)
+					@Html.DisplayFor(p => product.Id)
 				</td>
 				<td>
-					@Html.DisplayFor(modelItem => item.Name)
+					@Html.DisplayFor(p => product.Name)
 				</td>
 				<td>
-					@Html.DisplayFor(modelItem => item.Order)
+					@Html.DisplayFor(p => product.Order)
 				</td>
 				<td>
-					@Html.DisplayFor(modelItem => item.CategoryId)
+					@Html.DisplayFor(p => product.Category.Name)
 				</td>
 				<td>
-					@Html.DisplayFor(modelItem => item.BrandId)
+					@Html.DisplayFor(p => brand_name)
 				</td>
 				<td>
-					@Html.DisplayFor(modelItem => item.ImageUrl)
+					<img src="~/images/home/@product.ImageUrl" width="50" alt="@product.Name" />
 				</td>
 				<td>
-					@Html.DisplayFor(modelItem => item.Price)
+					@Html.DisplayFor(p => product.Price)
 				</td>
 				<td>
-					@Html.ActionLink("Edit", "Edit", new {/* id=item.PrimaryKey */}) |
-					@Html.ActionLink("Details", "Details", new {/* id=item.PrimaryKey */}) |
-					@Html.ActionLink("Delete", "Delete", new {/* id=item.PrimaryKey */})
+					<a asp-controller="Products" asp-action="Update" asp-route-id="@product.Id">
+						<i class="fa fa-edit"></i>
+					</a> |
+					<a asp-controller="Products" asp-action="Delete" asp-route-id="@product.Id">
+						<i class="fa fa-ban"></i>
+					</a>
 				</td>
 			</tr>
 		}

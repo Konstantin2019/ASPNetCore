@@ -2,6 +2,6 @@
 {
     public record OrderedEntity : NamedEntity
     {
-        public int Order { get; init; }
+        public int Order { get; set; }
     }
 }

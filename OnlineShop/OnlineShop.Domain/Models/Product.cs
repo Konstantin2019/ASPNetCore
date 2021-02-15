@@ -13,11 +13,11 @@ namespace OnlineShop.Domain.Models
         public int? BrandId { get; init; }
 
         [ForeignKey(nameof(BrandId))]
-        public Brand Brand { get; init; }
+        public Brand Brand { get; set; }
 
-        public string ImageUrl { get; init; }
+        public string ImageUrl { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
-        public decimal Price { get; init; }
+        public decimal Price { get; set; }
     }
 }
